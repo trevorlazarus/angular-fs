@@ -25,3 +25,36 @@
       </form>
     </div>
   </div>
+  <div *ngIf="jobs?.length > 0; else noJobs">
+<h5 class="center">Jobs</h5>
+    <ul *ngFor="let job of jobs" class="collection">
+      <li  class="collection-item"><strong>Job Number: {{job.job_id}}:</strong> <br>
+        Cutomer Name: {{job.customer_name}} 
+        <!-- <a href="#" class="secondary-content">
+            <i (click)="editJob($event, job)" class="fa fa-pencil"></i> 
+            <i *ngIf="editState && jobToEdit.id == job.id" (click)="clearState()" class="fa fa-compress"></i> 
+          </a> -->
+  
+          <!-- <div *ngIf="editState && jobToEdit.id == job.id">
+            <form (ngSubmit)="updateJob(job)">
+                <div class="row">
+                    <div class="input-field col s6">
+                      <input type="text" placeholder="Add Title" [(ngModel)]="job.title" name="title">
+                    </div>
+                    <div class="input-field col s6">
+                      <input type="text" placeholder="Add Description" [(ngModel)]="job.description" name="description">
+  
+                    </div>
+                    <input type="submit" value="Update" class="btn orange">
+                    <button (click)="deleteJob($event, job)" style="margin: 30px" class="btn red">Delete</button>
+                  </div>
+            </form>
+          </div> -->
+      </li>
+    </ul>
+  </div>
+  
+  <ng-template #noJobs>
+    <hr>
+    <h5>There are no jobs to list</h5>
+  </ng-template>

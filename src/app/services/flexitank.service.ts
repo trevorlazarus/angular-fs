@@ -45,12 +45,6 @@ export class FlexitankService {
     this.FlexitankDoc.update(flexitank);
 
   }
-
-  updateFlexitankFromJob(flexitank: Flexitank){
-    this.FlexitankDoc = this.afs.doc(`flexitanks/${flexitank.id}`);
-    this.FlexitankDoc.update(flexitank);
-
-  }
 }
 
 //could add an interface here

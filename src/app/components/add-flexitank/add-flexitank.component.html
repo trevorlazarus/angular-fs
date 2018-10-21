@@ -1,0 +1,26 @@
+<div class="card">
+  <div class="card card-content">
+    <span class="card-title">Add Flexitank</span>
+    <form (ngSubmit)="onSubmit()" class="col s6">
+      <div class="row">
+        <div class="input-field col s6">
+          <input type="text" placeholder="Add Flexitank Number" [(ngModel)]="flexitank.flexitank_number" name="flexitank_number">
+          <label>Flexitank Number</label>
+        </div>
+        <div class="input-field col s6">
+          <input type="text" placeholder="Add " [(ngModel)]="flexitank.place_of_fitting" name="place_of_fitting">
+          <label>Place of Fitting</label>
+        </div>
+        <!-- <div class="input-field col s6">
+          <input type="text" placeholder="Add Job Number" [(ngModel)]="flexitank.job_number" name="job_number">
+          <label>Job Number</label>
+        </div>
+        <div class="input-field col s6">
+          <input type="text" placeholder="Add Plastic Seal Number" [(ngModel)]="flexitank.plastic_seal_number" name="plastic_seal_number">
+          <label>Plastic Seal Number</label>
+        </div> -->
+        <input type="submit" value="Submit" class="btn">
+      </div>
+    </form>
+  </div>
+</div>

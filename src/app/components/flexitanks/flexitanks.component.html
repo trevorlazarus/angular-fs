@@ -1,0 +1,44 @@
+<div *ngIf="flexitanks?.length > 0; else noFlexitanks">
+  <ul *ngFor="let flexitank of flexitanks" class="collection">
+    <li  class="collection-item"><strong>flexitank#: </strong>{{flexitank.flexitank_number}} | <strong>Place of Fitting </strong>{{flexitank.place_of_fitting}}  
+      <a href="#" class="secondary-content">
+          <i (click)="editFlexitank($event, flexitank)" class="fa fa-pencil"></i> 
+          <i *ngIf="editState && flexitankToEdit.id == flexitank.id" (click)="clearState()" class="fa fa-compress"></i> 
+          <!-- <i *ngIf="editState && flexitankToEdit.id == flexitank.id" (click)="clearState()" class="fa fa-expand"></i> -->
+        </a>
+        <!-- <div>
+          <p>
+            <label>
+              <input type="checkbox" [(ngModel)]="flexitank.installation_record.checklist_a_1" name="checklist_a_1" />
+              <span>Yellow</span>
+            </label>
+          </p>
+        </div> -->
+
+
+  
+
+
+        <div *ngIf="editState && flexitankToEdit.id == flexitank.id">
+          <form (ngSubmit)="updateFlexitank(flexitank)">
+              <div class="row">
+                  <div class="input-field col s6">
+                    <input type="text" placeholder="Add Flexitank Number" [(ngModel)]="flexitank.flexitank_number" name="flexitank_number">
+                  </div>
+                  <div class="input-field col s6">
+                    <input type="text" placeholder="Add Place of Fitting" [(ngModel)]="flexitank.place_of_fitting" name="place_of_fitting">
+
+                  </div>
+                  <input type="submit" value="Update" class="btn orange">
+                  <!-- <button (click)="deleteFlexitank($event, flexitank)" style="margin: 30px" class="btn red">Delete</button> -->
+                </div>
+          </form>
+        </div>
+    </li>
+  </ul>
+</div>
+
+<ng-template #noFlexitanks>
+  <hr>
+  <h5>There are no flexitanks to list</h5>
+</ng-template>
